@@ -33,7 +33,7 @@ const emit = defineEmits(["start", "replay"]);
 
 defineProps({
   gameStatus: {
-    type: Object as PropType<gameType>,
+    type: Number as PropType<gameType>,
     default: ref(gameType.ready),
   },
 });

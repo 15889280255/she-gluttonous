@@ -1,17 +1,27 @@
 import { Map, mapType } from "../types";
 
-const clientWidth = document.documentElement.clientHeight - 20;
-const clientHeight = document.documentElement.clientWidth - 40;
+const clientWidth = document.documentElement.clientHeight;
+const clientHeight = document.documentElement.clientWidth;
+console.log("clientWidth: clientHeight:", clientWidth, clientHeight);
 
+// export const gameRow =
+//   clientWidth > 1000
+//     ? Math.floor(clientHeight / 160)
+//     : Math.floor(clientHeight / 35);
+
+// export const gameCol =
+//   clientWidth > 1000
+//     ? Math.floor(clientWidth / 32)
+//     : Math.floor(clientWidth / 60);
 export const gameRow =
-  clientWidth > 700
-    ? Math.floor(clientHeight / 120)
-    : Math.floor(clientHeight / 25);
+  clientWidth > 1000
+    ? Math.floor(clientWidth / 60)
+    : Math.floor(clientWidth / 50);
 
 export const gameCol =
-  clientWidth > 700
-    ? Math.floor(clientWidth / 32)
-    : Math.floor(clientWidth / 60);
+  clientWidth > 1000
+    ? Math.floor(clientHeight / 70)
+    : Math.floor(clientHeight / 40);
 
 // 初始化地图  现在所有的位置type都是0
 export function initMap(map: Map) {
