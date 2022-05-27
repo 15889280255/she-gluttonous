@@ -1,0 +1,14 @@
+// 利用rem和vw实现自适应布局
+html {
+  font-size: calc(100vw / 375 * 100);
+  @media screen and (min-width: 448px) {
+    font-size: 100px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+} 
