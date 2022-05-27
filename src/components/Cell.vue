@@ -41,8 +41,8 @@ const classes = computed(() => {
   box-shadow: 0 0 5px #76ff03, 0 0 5px #76ff03, 0 0 10px #76ff03;
 }
 .food {
-  // background-image: url("../assets/food.gif");
-  background-image: url("../assets/food2.jpg");
+  background-image: url("../assets/food.gif");
+  // background-image: url("../assets/food2.jpg");
   background-size: 100% 100%;
 }
 

@@ -49,8 +49,8 @@ export class Snake {
 
     const headX = this.head.x;
     const headY = this.head.y;
-    const bodyX = this.bodies.at(-1)?.x;
-    const bodyY = this.bodies.at(-1)?.y;
+    const bodyX = this.bodies[this.bodies.length - 1]?.x;
+    const bodyY = this.bodies[this.bodies.length - 1]?.y;
 
     switch (this.direction) {
       case "Up":
