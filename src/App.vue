@@ -2,8 +2,14 @@
   <div class="appContent">
     <Map :map="state.map"></Map>
     <Controller @start="start" @replay="replay" :gameStatus="gameStatus" />
-    <ButtonGroup @changeDirection="change" />
-    {{ score }}
+    <ButtonGroup class="ButtonGroup" @changeDirection="change" />
+    <span class="score">{{ score }}</span>
+    <audio controls ref="audio" class="audio" loop autoplay>
+      <source
+        src="https://img.tukuppt.com/newpreview_music/09/01/69/5c8a0553e18db46234.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
   </div>
 </template>
 
@@ -21,6 +27,8 @@ import {
 } from "./game";
 import { Direction, gameType, StateType } from "./types";
 
+const audio = ref(null);
+
 // 地图
 const state = ref<StateType>({
   map: [],
@@ -32,6 +40,8 @@ const gameStatus = ref(gameType.ready) as any;
 // 开始游戏
 const start = () => {
   startGame();
+  // @ts-ignore
+  audio.value.play();
 };
 
 // 再来一局
@@ -53,6 +63,7 @@ const score = getScore();
 <style>
 html,
 body {
+  background-color: rgb(0, 0, 0);
   padding: 0;
   overflow: hidden;
   background-size: cover;
@@ -76,6 +87,9 @@ body {
   position: relative;
   padding-left: 10px;
 }
+.ButtonGroup {
+  margin-left: 1rem;
+}
 @media screen and (max-width: 750px) {
   .appContent {
     padding-left: 0px;
@@ -85,5 +99,14 @@ body {
     align-items: flex-start;
     position: relative;
   }
+}
+.audio {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+}
+.score {
+  font-size: 1rem;
+  color: white;
 }
 </style>
